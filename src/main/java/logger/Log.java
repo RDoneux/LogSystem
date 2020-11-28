@@ -46,39 +46,39 @@ public class Log {
         }
     }
 
-    public void out(String log) {
-        write(log);
+    public String out(String log) {
+        return write(log);
     }
 
-    public void out(Exception log) {
+    public String out(Exception log) {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         log.printStackTrace(pw);
         level = Level.ERROR;
-        write(sw.toString());
+        return write(sw.toString());
     }
 
-    public void out(int log) {
-        write(String.valueOf(log));
+    public String out(int log) {
+        return write(String.valueOf(log));
     }
 
-    public void out(boolean log) {
-        write(String.valueOf(log));
+    public String out(boolean log) {
+        return write(String.valueOf(log));
     }
 
-    public void out(long log) {
-        write(String.valueOf(log));
+    public String out(long log) {
+        return write(String.valueOf(log));
     }
 
-    public void out(char log) {
-        write(String.valueOf(log));
+    public String  out(char log) {
+        return (String.valueOf(log));
     }
 
-    public void newLine() {
-        write("");
+    public String  newLine() {
+        return write("");
     }
 
-    private void write(String log) {
+    private String write(String log) {
 
         if (logFile == null || !logFile.exists()) {
             try {
@@ -103,6 +103,7 @@ public class Log {
         }
 
         level = null;
+        return log;
     }
 
     private String createTimeStamp() {
