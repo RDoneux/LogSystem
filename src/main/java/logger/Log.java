@@ -50,12 +50,13 @@ public class Log {
         return write(log);
     }
 
-    public String out(Exception log) {
+    public Exception out(Exception log) {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         log.printStackTrace(pw);
         level = Level.ERROR;
-        return write(sw.toString());
+        write(sw.toString());
+        return log;
     }
 
     public String out(int log) {
@@ -70,11 +71,11 @@ public class Log {
         return write(String.valueOf(log));
     }
 
-    public String  out(char log) {
+    public String out(char log) {
         return (String.valueOf(log));
     }
 
-    public String  newLine() {
+    public String newLine() {
         return write("");
     }
 
