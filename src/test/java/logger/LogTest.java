@@ -306,4 +306,22 @@ public class LogTest {
         assertThat(finalise.getLogFile()).exists();
 
     }
+
+    @Test
+    public void shouldCheckIfFileContainsString(){
+        String searchCase = "search case";
+
+        Log log = Log.get("test log");
+
+        log.out("line 1");
+        log.out("line 2");
+
+        assertThat(log.contains(searchCase)).isFalse();
+
+        log.out("search Case");
+        log.out("line 3");
+
+        assertThat(log.contains(searchCase)).isTrue();
+
+    }
 }

@@ -208,6 +208,22 @@ public class Log {
 
     }
 
+    public boolean contains(String searchCase) {
+        try {
+            Scanner scan = new Scanner(logFile);
+            StringBuilder builder = new StringBuilder();
+
+            while (scan.hasNext()) {
+                builder.append(scan.nextLine());
+            }
+            return builder.toString().toLowerCase().contains(searchCase.toLowerCase());
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     private boolean contains(String input, String sequence) {
 
         boolean[] checkList = new boolean[sequence.length()];
