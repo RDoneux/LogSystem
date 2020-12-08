@@ -46,11 +46,11 @@ public class Log {
         }
     }
 
-    public String out(String log) {
+    public synchronized String out(String log) {
         return write(log);
     }
 
-    public Exception out(Exception log) {
+    public synchronized Exception out(Exception log) {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         log.printStackTrace(pw);
@@ -59,27 +59,27 @@ public class Log {
         return log;
     }
 
-    public String out(int log) {
+    public synchronized String out(int log) {
         return write(String.valueOf(log));
     }
 
-    public String out(boolean log) {
+    public synchronized String out(boolean log) {
         return write(String.valueOf(log));
     }
 
-    public String out(long log) {
+    public synchronized String out(long log) {
         return write(String.valueOf(log));
     }
 
-    public String out(char log) {
+    public synchronized String out(char log) {
         return (String.valueOf(log));
     }
 
-    public String newLine() {
+    public synchronized String newLine() {
         return write("");
     }
 
-    private String write(String log) {
+    private synchronized String write(String log) {
 
         if (logFile == null || !logFile.exists()) {
             try {
