@@ -133,8 +133,9 @@ public class Log {
         logFile = null;
     }
 
-    public void level(Level newLevel) {
+    public Log level(Level newLevel) {
         level = newLevel;
+        return this;
     }
 
     public String getLocation() {
