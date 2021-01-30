@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LogTest {
 
-    private Log log = Log.get("test log");
+    private final Log log = Log.get("test log");
     
     @Test(expected = NoSuchFileException.class)
     public void shouldThrowNoSuchFileExceptionWhenlogFileIsEmpty() throws IOException {
